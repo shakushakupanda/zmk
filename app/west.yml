@@ -4,9 +4,11 @@ manifest:
       url-base: https://github.com/zephyrproject-rtos
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: lesshonor
+      url-base: https://github.com/lesshonor
   projects:
     - name: zephyr
-      remote: zmkfirmware
+      remote: lesshonor
       revision: v3.5.0+zmk-fixes
       clone-depth: 1
       import:
