@@ -55,4 +55,12 @@ config ZMK_INPUT_SPLIT
     default y
     depends on DT_HAS_ZMK_INPUT_SPLIT_ENABLED && ZMK_SPLIT
 
+if ZMK_INPUT_SPLIT
+
+config ZMK_INPUT_SPLIT_INIT_PRIORITY
+    int "Input Split initialization priority"
+    default INPUT_INIT_PRIORITY
+
+endif # ZMK_INPUT_SPLIT
+
 endif

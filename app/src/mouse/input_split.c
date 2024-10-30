@@ -40,9 +40,7 @@ int zmk_input_split_report_peripheral_event(uint8_t reg, uint8_t type, uint16_t 
 
 #define ZIS_INST(n)                                                                                \
     DEVICE_DT_INST_DEFINE(n, NULL, NULL, NULL, NULL, POST_KERNEL,                                  \
-                          CONFIG_KERNEL_INIT_PRIORITY_DEFAULT, NULL);
-
-DT_INST_FOREACH_STATUS_OKAY(ZIS_INST)
+                          CONFIG_ZMK_INPUT_SPLIT_INIT_PRIORITY, NULL);
 
 #else
 
@@ -66,6 +64,6 @@ DT_INST_FOREACH_STATUS_OKAY(ZIS_INST)
     }                                                                                              \
     INPUT_CALLBACK_DEFINE(DEVICE_DT_GET(DT_INST_PHANDLE(n, device)), split_input_handler_##n);
 
-DT_INST_FOREACH_STATUS_OKAY(ZIS_INST)
-
 #endif
+
+DT_INST_FOREACH_STATUS_OKAY(ZIS_INST)
