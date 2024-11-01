@@ -67,6 +67,16 @@ This example will send press of the fourth mouse button when the binding is trig
 &mkp MB4
 ```
 
+### Input Processors
+
+If you want to apply any [input processors](../input-processors/index.md#input-processors-overview) to `&mkp` you can do so by referencing `&mkp_input_listener`, e.g.:
+
+```dts
+&mkp_input_listener {
+    input-processors = <&zip_temp_layer 2 2000>;
+}
+```
+
 ## Mouse Move
 
 This behavior sends mouse X/Y movement events to the connected host.
@@ -99,6 +109,16 @@ The following will send a left mouse movement event to the host when pressed/hel
 &mmv MOVE_LEFT
 ```
 
+### Input Processors
+
+If you want to apply any [input processors](../input-processors/index.md#input-processors-overview) to `&mmv` you can do so by referencing `&mmv_input_listener`, e.g.:
+
+```dts
+&mmv_input_listener {
+    input-processors = <&zip_temp_layer 2 2000>;
+}
+```
+
 ## Mouse Scroll
 
 This behavior sends vertical and horizontal scroll events to the connected host.
@@ -129,4 +149,14 @@ The following will send a scroll left event to the host when pressed/held:
 
 ```
 &msc MOVE_LEFT
+```
+
+### Input Processors
+
+If you want to apply any [input processors](../input-processors/index.md#input-processors-overview) to `&msc` you can do so by referencing `&msc_input_listener`, e.g.:
+
+```dts
+&msc_input_listener {
+    input-processors = <&zip_temp_layer 2 2000>;
+}
 ```
