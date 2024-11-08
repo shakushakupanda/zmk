@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/petejohanson/zmk/compare/v0.1.0...v0.1.1) (2024-11-08)
+
+
+### Bug Fixes
+
+* Super important security update ([62cba00](https://github.com/petejohanson/zmk/commit/62cba00fc7e13f109f3987f4aa2b3177d65fa5a8))
+
 ## 0.1.0 (2024-11-08)
 
 
