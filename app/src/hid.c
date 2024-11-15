@@ -448,8 +448,7 @@ void zmk_hid_mouse_movement_update(int16_t hwheel, int16_t wheel) {
 void zmk_hid_mouse_scroll_set(int8_t hwheel, int8_t wheel) {
     mouse_report.body.d_scroll_x = hwheel;
     mouse_report.body.d_scroll_y = wheel;
-    // mouse_report.body.d_scroll_x = (hwheel / (16 - mouse_res_feature_report.body.hwheel_res));
-    // mouse_report.body.d_scroll_y = (wheel / (16 - mouse_res_feature_report.body.wheel_res));
+
     LOG_DBG("Mouse scroll set to %d/%d", mouse_report.body.d_scroll_x,
             mouse_report.body.d_scroll_y);
 }
@@ -457,8 +456,7 @@ void zmk_hid_mouse_scroll_set(int8_t hwheel, int8_t wheel) {
 void zmk_hid_mouse_scroll_update(int8_t hwheel, int8_t wheel) {
     mouse_report.body.d_scroll_x += hwheel;
     mouse_report.body.d_scroll_y += wheel;
-    // mouse_report.body.d_scroll_x += (hwheel / (16 - mouse_res_feature_report.body.hwheel_res));
-    // mouse_report.body.d_scroll_y += (wheel / (16 - mouse_res_feature_report.body.wheel_res));
+
     LOG_DBG("Mouse scroll updated to X: %d/%d", mouse_report.body.d_scroll_x,
             mouse_report.body.d_scroll_y);
 }
