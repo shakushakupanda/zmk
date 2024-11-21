@@ -67,7 +67,7 @@ Pointing devices are supported on split peripherals, with some additional config
 
 ### Shared
 
-Both peripheral and central make use of a `zmk,input-split` device, which functions differently depending on where is is used. To avoid duplicating work, this node can be defined in a common `.dtsi` file that is included into both central and peripheral `.overlay`/`.dts` files.
+Both peripheral and central make use of a `zmk,input-split` device, which functions differently depending on where is is used. To avoid duplicating work, this node can be defined in a common `.dtsi` file that is included into both central and peripheral `.overlay`/`.dts` files. Second, the input listener for the central side is added here, but disabled, so that keymaps (which are included for central and peripheral builds) can reference the listener to add input processors without issue.
 
 :::note
 
@@ -85,6 +85,12 @@ Input splits need to be nested under a parent node that properly sets the `#addr
             compatible = "zmk,input-split";
             reg = <0>;
         };
+    };
+
+    glidepoint_listener: glidepoint_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+        device = <&glidepoint_split>;
     };
 };
 ```
@@ -113,15 +119,12 @@ If needed, the split can also have basic input processors applied to fix up the 
 
 ### Central
 
-On the central, the input split acts as an input device, receiving events from the peripheral and raising them locally. First, include the shared file, and then add an [input listener](#listener) to the input split:
+On the central, the input split acts as an input device, receiving events from the peripheral and raising them locally. First, include the shared file, and then enabled the [input listener](#listener) that is created, but disabled, in our shared file:
 
 ```dts
 #include "common.dtsi"
 
-/ {
-    glidepoint_listener: glidepoint_listener {
-        compatible = "zmk,input-listener";
-        device = <&glidepoint_split>;
-    };
+&glidepoint_listener {
+    status = "okay";
 };
 ```
