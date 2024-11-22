@@ -24,3 +24,35 @@ Three pre-defined instance of the scaler input processor are available:
 | Reference         | Description                                                     |
 | ----------------- | --------------------------------------------------------------- |
 | `&zip_temp_layer` | Enable a certain layer temporarily until no events are received |
+
+## User Defined Instances
+
+Users can define new instances of the temporary layer input processor to use different settings.
+
+### Example
+
+```dts
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/ {
+    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        require-prior-idle-ms = <2000>;
+        excluded-positions = <1 2 3>;
+    };
+};
+```
+
+### Compatible
+
+The temp layer input processor uses a `compatible` property of `"zmk,input-processor-temp-layer"`.
+
+### Standard Properties
+
+- `#input-processor-cells` - required to be constant value of `<2>`.
+
+### User Properties
+
+- `require-prior-idle-ms` - Only activate the layer if there have not been any key presses for at least the set number of milliseconds
+- `excluded-positions` - Exclude certain positions from deactivating the layer once it is active.
