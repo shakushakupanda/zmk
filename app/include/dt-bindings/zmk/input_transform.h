@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2024 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
 #include <zephyr/dt-bindings/dt-util.h>
 
 #define INPUT_TRANSFORM_XY_SWAP BIT(0)
