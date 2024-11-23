@@ -13,7 +13,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
 #include <drivers/behavior.h>
 #include <zmk/behavior.h>
-#include "pmw3610.h"
+#include <zmk-pmw3610-driver/pmw3610.h>
 
 #if DT_HAS_COMPAT_STATUS_OKAY(DT_DRV_COMPAT)
 
